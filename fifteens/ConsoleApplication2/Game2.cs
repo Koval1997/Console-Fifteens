@@ -58,6 +58,12 @@ namespace Fifteens
             base.Shift(value);
         }
 
-
+  public override int SizeOfField
+        {
+            get
+            {
+                return base.SizeOfField;
+            }
+        }
     }
 }
