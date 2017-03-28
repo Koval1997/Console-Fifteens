@@ -123,7 +123,14 @@ namespace Fifteens
             return true;
         }
 
-
+    public virtual int SizeOfField
+        {
+            get
+            {
+                return Side;
+            }
+            
+        }
 
     }
 }
