@@ -37,5 +37,14 @@ namespace Fifteens
         {
             base.Randomize();
         }
+        
+         public override int SizeOfField
+        {
+            get
+            {
+                return base.SizeOfField;
+            }
+        }
+        
     }
 }
