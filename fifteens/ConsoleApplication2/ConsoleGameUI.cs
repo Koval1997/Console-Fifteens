@@ -29,7 +29,7 @@ namespace Fifteens
             Console.WriteLine();
         }
 
-        public void startGame()
+        public void StartGame()
         {
             Game array = objectIPlayable as Game;
             int value = 0;
