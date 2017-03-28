@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +8,33 @@ namespace Fifteens
 {
     class ConsoleGameUI
     {
+        
         IPlayable objectIPlayable;
-
-        public ConsoleGameUI(IPlayable game)
+       
+        public ConsoleGameUI(IPlayable objectIPlayable)
         {
-            objectIPlayable = game;
+            this.objectIPlayable = objectIPlayable;
         }
 
         public void Print()
         {
-           Game array = objectIPlayable as Game;
-           for (int i = 0; i < array.Side; i++)
+            Game array = objectIPlayable as Game;
+
+            for (int i = 0; i < objectIPlayable.SizeOfField; i++)
             {
-                for (int j = 0; j < array.Side; j++)
+                for (int j = 0; j < objectIPlayable.SizeOfField; j++)
                 {
-                    Console.Write("{0}\t", array[i, j].Number);
+                    Console.Write("{0}\t", array[i,j].Number);
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
+        
 
         public void StartGame()
         {
-            Game array = objectIPlayable as Game;
+            
             int value = 0;
             while (!objectIPlayable.IsFinished(objectIPlayable as Game))
             {
@@ -39,16 +42,18 @@ namespace Fifteens
                 Print();
                 Console.WriteLine("Введите число, которое хотите передвинуть.");
                 value = Convert.ToInt32(Console.ReadLine());
-                if ((value < 1) & (value > array.Side))
+                if ((value < 1) & (value > objectIPlayable.SizeOfField))
                 {
                     throw new ArgumentException("Нет такого числа");
                 }
                 objectIPlayable.Shift(value);
                 Console.WriteLine("Поле после хода.");
-                Print();                
-            }            
-               
+                Print();
+            }
+            Console.WriteLine("Поздравляю, Вы выйграли.");
         }
 
+
+        
     }
 }
